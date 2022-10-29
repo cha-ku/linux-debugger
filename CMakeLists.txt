@@ -4,6 +4,8 @@ project(ChakuDbg)
 
 set(CMAKE_CXX_FLAGS "-std=c++2a")
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 include_directories(external/libelfin external/linenoise include)
 
 add_executable(chakudbg src/debugger.cpp src/breakpoint.cpp src/register.cpp external/linenoise/linenoise.c src/linux-debugger.cpp)
