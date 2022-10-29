@@ -2,9 +2,7 @@
 
 namespace chakudbg {
     uint64_t get_register_value(pid_t pid, reg r) {
-        auto it = std::find_if(begin(g_register_descriptors) , end(g_register_descriptors),
-                                            [r] (auto&& reg_desc) { return reg_desc.r == r; });
-        auto index = it - begin(g_register_descriptors);
+        auto index = static_cast<int>(r);
         user_regs_struct regs;
         ptrace(PTRACE_GETREGS, pid, nullptr, &regs);
         /*
@@ -17,7 +15,6 @@ namespace chakudbg {
         auto* p_reg = reinterpret_cast<uint64_t*>(&regs);
         return *(p_reg + index);
     }
-
 
     void set_register_value(pid_t pid, reg r, uint64_t value) {
         user_regs_struct regs;

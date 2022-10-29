@@ -3,7 +3,6 @@
 #include <iostream>
 #include <unistd.h>
 #include "debugger.hpp"
-#include "register.hpp"
 
 using namespace chakudbg;
 

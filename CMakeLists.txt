@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(ChakuDbg)
 
-set(CMAKE_CXX_FLAGS "-std=c++17")
+set(CMAKE_CXX_FLAGS "-std=c++2a")
 
 include_directories(external/libelfin external/linenoise include)
 
@@ -19,3 +19,5 @@ target_link_libraries(chakudbg
 add_dependencies(chakudbg libelfin)
 
 add_executable(hello example/hello-world.cpp)
+set_target_properties(hello
+    PROPERTIES COMPILE_FLAGS "-g -O0")
