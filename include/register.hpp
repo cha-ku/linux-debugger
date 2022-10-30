@@ -4,6 +4,8 @@
 #include<sys/ptrace.h>
 #include <sys/user.h>
 #include <algorithm>
+#include <string>
+#include <array>
 
 namespace chakudbg {
     // these are in the same order as user_regs_struct in user.h

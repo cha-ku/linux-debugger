@@ -1,4 +1,5 @@
 #include "register.hpp"
+#include <stdexcept>
 
 namespace chakudbg {
     uint64_t get_register_value(pid_t pid, reg r) {

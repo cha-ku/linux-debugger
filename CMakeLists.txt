@@ -23,3 +23,7 @@ add_dependencies(chakudbg libelfin)
 add_executable(hello example/hello-world.cpp)
 set_target_properties(hello
     PROPERTIES COMPILE_FLAGS "-g -O0")
+
+add_custom_command(TARGET chakudbg POST_BUILD
+    COMMAND mv ${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json ${CMAKE_SOURCE_DIR}
+    VERBATIM)
